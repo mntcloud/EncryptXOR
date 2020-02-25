@@ -1,0 +1,2 @@
+# EncryptGo
+Encryption using XOR
