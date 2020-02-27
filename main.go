@@ -10,7 +10,7 @@ func main(){
 	 crypt(answer, file)
 }
 
-// Encryption using XOR
+// Encryption with XOR
 func crypt(answer string, fileIn string){
 	 var file, outFile *os.File
 	 var err error 
