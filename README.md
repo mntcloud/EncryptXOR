@@ -1,2 +1,2 @@
-# EncryptGo
+# EncryptXOR
 Encryption with XOR
