@@ -1,2 +1,2 @@
 # EncryptGo
-Encryption using XOR
+Encryption with XOR
