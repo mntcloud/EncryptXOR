@@ -10,15 +10,6 @@ func main(){
 	} else {
 		crypt()
 	}
-	/*
-    if (len(os.Args) < 2) || ((os.Args[1] != "--encrypt") || (os.Args[1] != "--decrypt")) {
-       fmt.Println("Help:")
-       fmt.Println("  --encrypt filename")
-       fmt.Println("  --decrypt filename")
-    } else {
-	   crypt()
-    }
-    */
 }
 
 // Encryption with XOR
