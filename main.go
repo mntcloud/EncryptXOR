@@ -49,11 +49,12 @@ func errorChecker(err error) {
 	 }
 }                                                
 // Pack of conditions for checking command        
-func commandChecker(criteria[]string, size int) bool{
+func commandChecker(criteria[]string, size int) (bool, string){
 	 if len(os.Args) < 2 {
 	 	return false
 	 }
 	 var count int
+	 var filename string
 	 for i, _ := range os.Args {
 	 	if runeChecker(os.Args[i], '-') == 2 {
 	 	   for n, _ := range criteria { 
@@ -61,6 +62,8 @@ func commandChecker(criteria[]string, size int) bool{
 	 	   	   	     count++               
 	 	   	   }
 	 	   }
+	 	} else if runeChecker(os.Args[i], '.') == 1 {
+	 	  filename = os.Args[i]
 	 	} 
 	 }
 	 if count == size{ 
