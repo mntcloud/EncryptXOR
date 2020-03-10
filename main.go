@@ -2,14 +2,13 @@ package main
 import ("fmt";"os";"log")
 
 func main(){
-	arr := []string{"--encrypt", "--decrypt"}
-	if !commandChecker(arr, 1) {
-       fmt.Println("Help:")
-       fmt.Println("  --encrypt filename")
-       fmt.Println("  --decrypt filename")
-	} else {
-		crypt()
-	}
+	if (len(os.Args) == 3) && (runeChecker(os.Args[2], '.') == 1) {
+	   crypt()
+	 } else {
+	 	fmt.Println("Help:")
+	 	fmt.Println("--encrypt filename")
+	    fmt.Println("--decrypt filename")
+	 }
 }
 
 // Encryption with XOR
@@ -19,9 +18,13 @@ func crypt(){
 	 errorChecker(err)
 	 switch os.Args[1] {
 	    case "--encrypt":
-	 	    outFile, _ = os.Create(os.Args[2] + ".enc")
+	 	    outFile, _ = os.Create(".enc")
 	 	case "--decrypt":
 	 	    outFile, _ = os.Create("decrypted.txt")
+	 	default:
+	 		fmt.Println("Help:")
+	 		fmt.Println("--encrypt filename")
+	 		fmt.Println("--decrypt filename")
 	 }
 	 fileInfo, _ := file.Stat()
 	 buffer := make([]byte, fileInfo.Size())
@@ -47,7 +50,8 @@ func errorChecker(err error) {
 	 if err != nil {
 	 	log.Fatal(err)
 	 }
-}                                                
+}
+/*                                               
 // Pack of conditions for checking command        
 func commandChecker(criteria[]string, size int) (bool, string){
 	 if len(os.Args) < 2 {
@@ -72,6 +76,7 @@ func commandChecker(criteria[]string, size int) (bool, string){
    	 	return false
    	 }
 }
+*/
 
 func runeChecker(str string, char rune) int {
 	var sum int
